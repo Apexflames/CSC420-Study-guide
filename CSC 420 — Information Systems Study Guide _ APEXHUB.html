@@ -1,0 +1,572 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CSC 420 — Information Systems Study Guide | APEXHUB</title>
+<style>
+:root{
+  --bg:#f5f7fa;--bg2:#ffffff;--text:#151b24;--text2:#515d6b;--line:#dde3ea;
+  --accent:#1e4d7b;--accent2:#c2622a;--code:#eef2f7;--tag-src:#1e4d7b;--tag-plain:#1f7a5c;--tag-ex:#c2622a;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);box-sizing:border-box;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#10151d;--bg2:#171e28;--text:#e6ecf3;--text2:#9aacc0;--line:#283245;--accent:#6fa3d8;--accent2:#e0975f;--code:#1c2534;--tag-src:#6fa3d8;--tag-plain:#6fcfa6;--tag-ex:#e0975f;}}
+:root[data-theme="dark"]{--bg:#10151d;--bg2:#171e28;--text:#e6ecf3;--text2:#9aacc0;--line:#283245;--accent:#6fa3d8;--accent2:#e0975f;--code:#1c2534;--tag-src:#6fa3d8;--tag-plain:#6fcfa6;--tag-ex:#e0975f;}
+html{scroll-padding-top:70px;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;line-height:1.6;}
+header{position:sticky;top:0;z-index:50;background:var(--bg2);border-bottom:1px solid var(--line);padding:calc(10px + env(safe-area-inset-top,0px)) 16px 10px;}
+.hdr-row{display:flex;align-items:center;gap:10px;max-width:1040px;margin:0 auto;}
+.brand{font-weight:800;font-size:15px;white-space:nowrap;}
+.brand span{color:var(--accent);}
+#search{flex:1;min-width:0;padding:8px 10px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--text);font-size:14px;}
+#theme-btn{border:1px solid var(--line);background:var(--bg);color:var(--text);border-radius:6px;padding:8px 10px;cursor:pointer;white-space:nowrap;}
+nav.topics{display:flex;gap:6px;overflow-x:auto;max-width:1040px;margin:8px auto 0;font-size:11.5px;}
+nav.topics a{white-space:nowrap;color:var(--text2);text-decoration:none;padding:5px 9px;border-radius:14px;border:1px solid var(--line);}
+nav.topics a:hover{color:var(--accent);border-color:var(--accent);}
+main{max-width:860px;margin:0 auto;padding:20px 16px 80px;}
+.masthead{font-size:12px;color:var(--text2);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px;}
+h1.title{font-size:26px;margin:2px 0 6px;}
+p.lecturer-credit{font-size:13.5px;font-weight:700;color:var(--accent);margin:0 0 8px;}
+p.tagline{font-size:15px;color:var(--text2);margin:0 0 14px;}
+.meta-strip{font-size:12.5px;color:var(--text2);background:var(--code);border-radius:8px;padding:10px 14px;margin:0 0 18px;}
+.howto{background:var(--code);border-left:4px solid var(--accent);border-radius:0 8px 8px 0;padding:14px 18px;margin:0 0 30px;font-size:13.5px;}
+.howto b{color:var(--accent);}
+.topic{border-top:3px solid var(--accent);padding-top:6px;margin-top:58px;}
+.topic:first-of-type{margin-top:10px;}
+.topic-eyebrow{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent2);}
+.topic h2{font-size:20px;margin:4px 0 6px;}
+.topic .dek{font-size:14px;color:var(--text2);margin:0 0 16px;}
+.topic h3.sub-h{font-size:15.5px;margin:26px 0 8px;padding-bottom:5px;border-bottom:1px solid var(--line);}
+.tag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:4px;margin-bottom:6px;}
+.tag.src{background:color-mix(in srgb,var(--tag-src) 18%,transparent);color:var(--tag-src);}
+.tag.plain{background:color-mix(in srgb,var(--tag-plain) 18%,transparent);color:var(--tag-plain);}
+.tag.ex{background:color-mix(in srgb,var(--tag-ex) 18%,transparent);color:var(--tag-ex);}
+blockquote.lecturer{border-left:3px solid var(--tag-src);margin:0 0 14px;padding:2px 0 2px 14px;font-style:italic;}
+.plain-box{padding:8px 12px;border-left:3px solid var(--tag-plain);background:var(--code);border-radius:0 6px 6px 0;margin:0 0 14px;font-size:14px;}
+.example-box{padding:8px 12px;border-left:3px solid var(--tag-ex);background:var(--code);border-radius:0 6px 6px 0;margin:0 0 14px;font-size:14px;}
+ul.keypts{margin:0 0 14px;padding-left:20px;}ul.keypts li{margin-bottom:5px;}
+table{width:100%;border-collapse:collapse;margin:0 0 16px;font-size:13px;display:block;overflow-x:auto;white-space:nowrap;}
+table th,table td{border:1px solid var(--line);padding:6px 9px;text-align:left;white-space:normal;}
+table th{background:var(--code);font-weight:700;}
+.revision{background:var(--code);border-radius:8px;padding:14px 16px;margin:22px 0;}
+.revision h3{margin-top:0;font-size:14.5px;}
+.likely-q{border:1px solid var(--line);border-left:4px solid var(--tag-plain);border-radius:8px;margin-bottom:14px;background:var(--bg2);padding:12px 16px;}
+.likely-q .qtext{font-size:14.5px;margin:4px 0 8px;font-weight:700;}
+.qa-answer{font-size:13.5px;margin-bottom:2px;}
+.qa-meta{font-size:11px;color:var(--text2);}
+footer{max-width:860px;margin:40px auto 60px;padding:16px;font-size:12px;color:var(--text2);border-top:1px solid var(--line);}
+.hidden{display:none !important;}
+.top-link{position:fixed;bottom:calc(16px + env(safe-area-inset-bottom,0px));right:16px;background:var(--accent);color:#fff;border:none;border-radius:50%;width:42px;height:42px;font-size:18px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25);}
+.widget{border:1px solid var(--line);border-radius:10px;background:var(--bg2);padding:14px;margin:0 0 18px;}
+.wlabel{font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin-bottom:6px;}
+.widget p.wnote{color:var(--text2);font-size:12px;margin:4px 0 10px;}
+.tabs{display:flex;gap:6px;margin-bottom:10px;flex-wrap:wrap;}
+.tabs button{border:1px solid var(--line);background:var(--bg);color:var(--text2);border-radius:6px;padding:6px 12px;font-size:12.5px;cursor:pointer;}
+.tabs button.active{background:var(--accent);color:#fff;border-color:var(--accent);}
+.info-panel{border:1px dashed var(--line);border-radius:8px;padding:10px 12px;font-size:13px;min-height:38px;background:var(--code);}
+.pyramid{display:flex;flex-direction:column;align-items:center;gap:4px;margin-bottom:10px;}
+.pyr-layer{cursor:pointer;text-align:center;padding:10px;border-radius:6px;border:2px solid var(--line);font-size:12.5px;font-weight:700;background:var(--code);transition:all .15s;}
+.pyr-layer.active{border-color:var(--accent);background:var(--accent);color:#fff;}
+.pyr-layer.w1{width:40%;}.pyr-layer.w2{width:55%;}.pyr-layer.w3{width:70%;}.pyr-layer.w4{width:85%;}
+.flow{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:10px;}
+.flow-step{border:2px solid var(--line);border-radius:8px;padding:8px 10px;font-size:11.5px;text-align:center;min-width:86px;background:var(--code);transition:all .2s;}
+.flow-step.active{border-color:var(--accent);background:var(--accent);color:#fff;font-weight:700;}
+.flow-arrow{color:var(--text2);font-size:16px;}
+.btnrow{display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap;}
+.btnrow button{border:1px solid var(--accent);background:var(--accent);color:#fff;border-radius:6px;padding:7px 14px;font-size:12.5px;cursor:pointer;}
+.btnrow button.secondary{background:var(--bg);color:var(--accent);}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;margin-bottom:10px;}
+.sys-card{border:1px solid var(--line);border-radius:8px;padding:9px 10px;font-size:12px;background:var(--code);cursor:pointer;text-align:center;font-weight:700;}
+.sys-card.active{border-color:var(--accent);background:var(--bg2);color:var(--accent);}
+.step-row{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px;}
+.step-dot{border:2px solid var(--line);border-radius:50%;width:38px;height:38px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;cursor:pointer;background:var(--code);flex:0 0 auto;}
+.step-dot.active{border-color:var(--accent);background:var(--accent);color:#fff;}
+details.expand{border:1px solid var(--line);border-radius:8px;margin-bottom:14px;background:var(--bg2);}
+details.expand summary{cursor:pointer;padding:10px 14px;font-weight:700;font-size:13px;list-style:none;color:var(--accent);}
+details.expand summary::-webkit-details-marker{display:none;}
+details.expand summary:before{content:"▶ ";}
+details.expand[open] summary:before{content:"▼ ";}
+.expand-body{padding:0 14px 14px;}
+@media(max-width:600px){.hdr-row{flex-wrap:wrap;}.brand{width:100%;}}
+</style>
+</head>
+<body>
+<header>
+  <div class="hdr-row">
+    <div class="brand">APEXHUB <span>/ CSC 420</span></div>
+    <input id="search" type="text" placeholder="Search: DIKW, TPS, MIS, SREDIM, informatics..." aria-label="Search study guide">
+    <button id="theme-btn" aria-label="Toggle theme">◐</button>
+  </div>
+  <nav class="topics" id="topic-nav"></nav>
+</header>
+
+<main id="main">
+<div class="masthead">B.Sc. Computer Science · CSC 420</div>
+<h1 class="title">Information Systems — Study Guide</h1>
+<p class="lecturer-credit">CSC 420 — Information Systems &nbsp;·&nbsp; Lecturer: Dr Ogunlana S.O.</p>
+<p class="tagline">Systems, DIKW, computer-based information systems, informatics, and Organisation &amp; Methods — distilled from the lecture notes, with the lecturer's own wording preserved for every definition.</p>
+<div class="meta-strip">Adekunle Ajasin University (AAUA) · Dept. of Computer Science · Lecturer: Dr Ogunlana S.O. (Ph.D) · Compiled by APEXHUB</div>
+<div class="howto"><b>📖 How to use this guide:</b> Tap any <b>▶ Click to expand</b> box for deeper detail. Use the interactive DIKW pyramid, IS lifecycle stepper, system-type cards and SREDIM stepper to see how each model works, not just read about it. Likely exam questions sit as visible cards at the end of each topic.</div>
+
+<!-- TOPIC 1 -->
+<section class="topic" id="t1" data-kw="concept information systems system data information knowledge wisdom dikw feedback control characteristics types components tps mis dss eis ess erp crm scm kms lifecycle">
+<div class="topic-eyebrow">Topic 1</div>
+<h2>Concept of Information Systems</h2>
+<p class="dek">Systems, DIKW, the components of an IS, and the organizational pyramid of computer-based information systems.</p>
+
+<h3 class="sub-h">What Is a System?</h3>
+<span class="tag src">Source</span>
+<blockquote class="lecturer">A system is a group of interrelated components working together toward a common goal by accepting inputs and producing outputs in an organized transformation process.</blockquote>
+<div class="plain-box"><span class="tag plain">Plain English</span>"System" comes from the Greek <i>systema</i> — an organised relationship among the parts of something. Any system — a car, a company, a computer — is just parts working together toward one goal.</div>
+<ul class="keypts">
+<li>Structure of a system: <b>Input</b> (people, raw materials, money) → <b>Processing</b> (transformation using energy, procedures, employees, machines) → <b>Output</b> (products, served customers).</li>
+<li><b>Closed system</b> — totally independent of and isolated from its environment. <b>Open system</b> — significantly interconnected with its environment, exchanging information, material, energy, people.</li>
+<li><b>Systems approach</b> — a set of procedures/scientific methods for solving a problem, caring about the inter-relatedness of elements. <b>Systems analysis</b> — a management technique for designing a new system or improving an existing one.</li>
+</ul>
+
+<h3 class="sub-h">Feedback and Control</h3>
+<div class="plain-box"><span class="tag plain">Plain English</span>A system with feedback and control is a <b>cybernetic system</b> — it monitors and regulates itself. <b>Feedback</b> is data about the system's performance (e.g. sales performance data to a sales manager). <b>Control</b> is using that feedback to decide whether the system is on track and adjust its inputs/processing if not.</div>
+
+<h3 class="sub-h">Interactive: The DIKW Hierarchy</h3>
+<div class="widget">
+<div class="wlabel">Interactive · Tap each layer, bottom to top</div>
+<p class="wnote">DIKW is an information hierarchy — each layer adds something over the one below it.</p>
+<div class="pyramid" id="dikwPyramid"></div>
+<div class="info-panel" id="dikwInfo">Tap a layer above.</div>
+</div>
+<span class="tag src">Source</span>
+<blockquote class="lecturer">Data is the most basic level; Information adds context; Knowledge adds how to use it; and wisdom adds when to use it.</blockquote>
+
+<h3 class="sub-h">Creating Information: Data Processes</h3>
+<p>Processing raw data places it into a meaningful context. Common data processes (as supplied):</p>
+<table><tr><th>Process</th><th>What it means</th></tr>
+<tr><td>Classification</td><td>Placing data into categories, e.g. categorizing an expense as fixed or variable</td></tr>
+<tr><td>Rearranging/sorting</td><td>Organizing data so items are grouped or ordered, e.g. sorting employees by surname</td></tr>
+<tr><td>Aggregating</td><td>Summarizing data — averages, totals, subtotals</td></tr>
+<tr><td>Performing calculations</td><td>E.g. calculating gross pay = hours worked × hourly rate</td></tr>
+<tr><td>Selection</td><td>Choosing/discarding data by criteria, e.g. listing customers with incomes above a threshold</td></tr>
+</table>
+
+<h3 class="sub-h">Characteristics of a System (as supplied)</h3>
+<ul class="keypts">
+<li><b>Organisation</b> — structure and order; the arrangement of components that helps achieve objectives (e.g. a hierarchical org chart; a computer's input device, CPU, output device and storage units linked together).</li>
+<li><b>Interaction</b> — how each component functions with other components (e.g. purchasing interacts with production; the CPU interacts with memory and other units).</li>
+<li><b>Interdependence</b> — components depend on one another, coordinated and linked to achieve an objective.</li>
+<li><b>Integration</b> — how the system is tied together; parts work together even though each performs a unique function, producing a better result as a whole.</li>
+<li><b>Central Objective</b> — the objective (real or stated) that all users must be aware of in advance.</li>
+</ul>
+
+<h3 class="sub-h">Types of Systems</h3>
+<table><tr><th>Classification</th><th>Meaning</th></tr>
+<tr><td>Physical or Abstract</td><td>Physical = tangible, static or dynamic. Abstract = conceptual/non-physical (e.g. formulas, models)</td></tr>
+<tr><td>Open or Closed</td><td>Open = continually interacts with its environment (e.g. an information system). Closed = isolated from environmental influences (rare in reality)</td></tr>
+<tr><td>Deterministic or Probabilistic</td><td>Deterministic = next state perfectly predictable (e.g. a numerically controlled machine tool). Probabilistic = occurrence of events cannot be perfectly predicted (e.g. a warehouse and its contents)</td></tr>
+<tr><td>Man-made Information Systems</td><td>A set of devices, procedures and operating systems designed around user-based criteria to produce and communicate information for planning, control and performance</td></tr>
+</table>
+
+<h3 class="sub-h">Formal, Informal &amp; Computer-based Information Systems</h3>
+<ul class="keypts">
+<li><b>Formal Information System</b> — based on the organization chart; a map of positions and authority relationships, concerned with authority, communication and work flow.</li>
+<li><b>Informal Information System</b> — an employee-based system meeting personal/vocational needs, helping solve work-related problems and funnelling information upward through indirect channels.</li>
+<li><b>Computer-based Information Systems (CBIS)</b> — the third category; depends mainly on the computer for handling business applications.</li>
+</ul>
+
+<h3 class="sub-h">Interactive: Types of Computer-Based Information Systems</h3>
+<div class="widget">
+<div class="wlabel">Interactive · Tap a system type</div>
+<div class="card-grid" id="cbisGrid"></div>
+<div class="info-panel" id="cbisInfo">Tap a card above.</div>
+</div>
+
+<h3 class="sub-h">Components of an Information System</h3>
+<p>Five key components (as supplied):</p>
+<table><tr><th>Component</th><th>What it covers</th></tr>
+<tr><td>Hardware</td><td>Physical equipment for input/processing/output/storage — computers, servers, phones, peripherals, routers, IoT sensors</td></tr>
+<tr><td>Software</td><td>Preprogrammed instructions controlling hardware — system software (e.g. Windows, iOS) and application software (e.g. word processors, ERP)</td></tr>
+<tr><td>Data</td><td>Raw facts captured, stored and manipulated — the bridge between hardware and software</td></tr>
+<tr><td>People</td><td>Users, operators, IS specialists, and decision makers who interact with and manage the system</td></tr>
+<tr><td>Procedures/Processes</td><td>Rules, policies and methods governing how data is collected, processed, stored, distributed and used</td></tr>
+</table>
+<div class="plain-box"><span class="tag plain">Plain English</span>These five are interdependent — change one (say, the software) and it affects the others (people need retraining, procedures must update).</div>
+
+<h3 class="sub-h">Interactive: The Information System Lifecycle</h3>
+<div class="widget">
+<div class="wlabel">Interactive · Play / Step through the loop</div>
+<p class="wnote">A continuous loop: Input → Processing → Output → Storage → Feedback (which loops back to adjust Input/Processing).</p>
+<div class="flow" id="lifecycleFlow"></div>
+<div class="btnrow">
+  <button id="lcPlay">▶ Play</button>
+  <button id="lcStep" class="secondary">⏭ Step</button>
+  <button id="lcReset" class="secondary">↺ Reset</button>
+</div>
+<div class="info-panel" id="lcInfo">Press Play or Step to begin.</div>
+</div>
+
+<h3 class="sub-h">Interactive: Organizational Roles Pyramid</h3>
+<div class="widget">
+<div class="wlabel">Interactive · Tap a level</div>
+<p class="wnote">Different management levels rely on different system types.</p>
+<div class="pyramid" id="orgPyramid"></div>
+<div class="info-panel" id="orgInfo">Tap a level above.</div>
+</div>
+
+<h3 class="sub-h">Why Information Systems Are Vital Today (5 functions, as supplied)</h3>
+<ul class="keypts">
+<li><b>Enhanced Decision-Making</b> — accurate, real-time data reduces reliance on "gut feelings."</li>
+<li><b>Coordination &amp; Collaboration</b> — teams across the globe work on the same data via cloud-based platforms.</li>
+<li><b>Control</b> — managers monitor performance against goals and spot anomalies immediately.</li>
+<li><b>Analysis &amp; Visualization</b> — complex data becomes charts/graphs/heatmaps, revealing trends.</li>
+<li><b>Competitive Advantage</b> — an efficient IS lowers costs, improves service, and enables new business models (e.g. Netflix, Uber).</li>
+</ul>
+
+<div class="revision"><h3>📋 Quick Revision — Topic 1</h3>
+<table><tr><th>Term</th><th>Meaning</th></tr>
+<tr><td>Cybernetic system</td><td>A system with feedback and control — self-monitoring, self-regulating</td></tr>
+<tr><td>DIKW</td><td>Data → Information → Knowledge → Wisdom hierarchy</td></tr>
+<tr><td>TPS</td><td>Transaction Processing System — operational level, routine transactions</td></tr>
+<tr><td>MIS</td><td>Management Information System — tactical level, supports planning/scheduling/analysis</td></tr>
+<tr><td>DSS</td><td>Decision Support System — unstructured/semi-structured decisions</td></tr>
+<tr><td>EIS/ESS</td><td>Executive (Support) Information System — strategic level, dashboards</td></tr>
+<tr><td>ERP</td><td>Enterprise Resource Planning — integrates core functions into one platform</td></tr>
+<tr><td>CRM</td><td>Customer Relationship Management</td></tr>
+<tr><td>SCM</td><td>Supply Chain Management</td></tr>
+<tr><td>KMS</td><td>Knowledge Management System</td></tr>
+</table></div>
+
+<div class="likely-q"><div class="wlabel">Likely Question</div>
+<p class="qtext">Q: Define a system, and explain the three basic interacting components of a dynamic system.</p>
+<div class="qa-answer">A system is a group of interrelated components working together toward a common goal by accepting inputs and producing outputs in an organized transformation process. Its three basic components are: (1) Input — capturing and assembling elements to be processed (raw materials, energy, data, human effort); (2) Processing — the transformation process that converts input into output (e.g. manufacturing, calculations); (3) Output — transferring the processed elements to their ultimate destination (finished products, services, information).</div>
+<div class="qa-meta">📍 See Topic 1 → What Is a System?</div></div>
+<div class="likely-q"><div class="wlabel">Likely Question</div>
+<p class="qtext">Q: Differentiate between a Transaction Processing System, a Management Information System, and a Decision Support System.</p>
+<div class="qa-answer">A TPS is the most fundamental computer-based system — it captures, classifies, stores and retrieves transaction data (e.g. billing, hiring, placing orders) for routine, operational-level work. An MIS enlarges the scope of data processing to support management and administrative activities — planning, scheduling, analysis and decision-making — for tactical-level managers. A DSS assists managers facing unstructured or semi-structured decisions that are not recurring and for which no clear procedure exists; it supports, but does not replace, managerial judgement.</div>
+<div class="qa-meta">📍 See Topic 1 → Types of Computer-Based Information Systems</div></div>
+</section>
+
+<!-- TOPIC 2 -->
+<section class="topic" id="t2" data-kw="informatics information systems history evolution bioinformatics geoinformatics social informatics iaas paas saas cloud computer science cognitive science">
+<div class="topic-eyebrow">Topic 2</div>
+<h2>Informatics</h2>
+<p class="dek">The study of information itself — its structure, behaviour and interactions — and how it differs from Information Systems.</p>
+
+<span class="tag src">Source</span>
+<blockquote class="lecturer">Informatics is an interdisciplinary field that focuses on the structure, behavior, and interactions of natural and artificial systems that store, process, and communicate information.</blockquote>
+
+<h3 class="sub-h">Informatics vs. Information Systems</h3>
+<table><tr><th></th><th>Informatics</th><th>Information Systems</th></tr>
+<tr><td>Focus</td><td>Theoretical underpinnings and fundamental nature of information — data representation, information theory, philosophical implications</td><td>Applied — design, development, implementation and management of systems supporting organizational processes and decisions</td></tr>
+<tr><td>Asks</td><td><i>How</i> does information work, and <i>what</i> are its inherent properties?</td><td><i>How</i> can information technology be deployed to achieve business/organizational goals?</td></tr>
+</table>
+<div class="plain-box"><span class="tag plain">Plain English</span>Informatics is the theory; Information Systems is the practical application of that theory inside organizations.</div>
+
+<h3 class="sub-h">Interactive: History of Informatics</h3>
+<div class="widget">
+<div class="wlabel">Interactive · Step through the four eras</div>
+<div class="btnrow">
+  <button id="histPrev" class="secondary">◀ Prev</button>
+  <button id="histNext">Next ▶</button>
+</div>
+<div class="info-panel" id="histInfo"></div>
+</div>
+
+<h3 class="sub-h">Structural Shifts: The Cloud Architecture Stack</h3>
+<table><tr><th>Layer</th><th>What it provides</th></tr>
+<tr><td><b>IaaS</b> (Infrastructure as a Service)</td><td>The physical/virtualized hardware layer — servers, networking, firewalls — where data physically resides</td></tr>
+<tr><td><b>PaaS</b> (Platform as a Service)</td><td>Development tools, middleware and database engines needed to build information pipelines</td></tr>
+<tr><td><b>SaaS</b> (Software as a Service)</td><td>The end-user application tier (CRM, ERP, email) where human interaction with data occurs</td></tr>
+</table>
+
+<h3 class="sub-h">Modern Domains of Informatics (as supplied)</h3>
+<ul class="keypts">
+<li><b>Bioinformatics</b> — computational tools to map genomic sequences and model molecular structures.</li>
+<li><b>Medical/Health Informatics</b> — managing Electronic Health Records (EHR) and clinical decision-support systems.</li>
+<li><b>Geoinformatics</b> — analyzing spatial data via Geographic Information Systems (GIS) for urban planning and climate tracking.</li>
+<li><b>Social Informatics</b> — studying how information systems design impacts human behavior, social networks and cultural institutions.</li>
+</ul>
+
+<h3 class="sub-h">The Interdisciplinary Pillars of Informatics</h3>
+<table><tr><th>Pillar</th><th>Contribution</th></tr>
+<tr><td>Computer Science</td><td>Technical scaffolding — algorithms, data structures, software engineering</td></tr>
+<tr><td>Cognitive Science</td><td>How humans perceive/process/store information — informs UI design and AI</td></tr>
+<tr><td>Social Science</td><td>Societal impact of data flow — ethical, equitable information design</td></tr>
+<tr><td>Engineering</td><td>Problem-solving mindset — scalability, reliability, physical constraints of communicating data</td></tr>
+</table>
+
+<h3 class="sub-h">Informatics in the Context of Information Systems</h3>
+<p>Informatics explores the <b>Socio-technical Triad</b> — the relationship between Information, Technology, and People — through:</p>
+<ul class="keypts">
+<li><b>Human-Computer Interaction (HCI)</b> — aligning digital-system design with human cognitive capabilities and limitations.</li>
+<li><b>Information Architecture</b> — structuring complex data environments so information is discoverable and logically organized.</li>
+<li><b>Social Informatics</b> — analyzing how a new information system changes an organization's culture, power structures and workflows.</li>
+</ul>
+
+<div class="revision"><h3>📋 Quick Revision — Topic 2</h3>
+<table><tr><th>Era</th><th>Period</th><th>Key milestone</th></tr>
+<tr><td>Pre-Digital/Mechanical</td><td>Pre-1940s</td><td>Abacus; Pascal's Pascaline (1642); Babbage's Analytical Engine (1837); 1890 US Census punch cards</td></tr>
+<tr><td>Birth of Foundation Theory</td><td>1940s–1950s</td><td>Claude Shannon's "A Mathematical Theory of Communication" (1948) — defines the "bit"; ENIAC (1945)</td></tr>
+<tr><td>Institutional &amp; Mainframe Growth</td><td>1960s–1980s</td><td>Term "informatics" coined (Mikhailov, 1966; Dreyfus); RDBMS by Edgar F. Codd (1970)</td></tr>
+<tr><td>Network &amp; AI Revolution</td><td>1990s–Present</td><td>World Wide Web; Big Data; Cloud Computing</td></tr>
+</table></div>
+
+<div class="likely-q"><div class="wlabel">Likely Question</div>
+<p class="qtext">Q: Distinguish between Informatics and Information Systems, and explain how they relate to each other.</p>
+<div class="qa-answer">Informatics focuses on the theoretical underpinnings of information itself — how it is represented, structured and governed by information theory — asking how information works and what its properties are. Information Systems is more applied: it concerns the design, development, implementation and management of systems that use information technology to support organizational processes and decision-making. They relate because Informatics provides the theoretical framework that Information Systems applies to build practical, organization-specific solutions.</div>
+<div class="qa-meta">📍 See Topic 2 → Informatics vs. Information Systems</div></div>
+<div class="likely-q"><div class="wlabel">Likely Question</div>
+<p class="qtext">Q: Name and briefly describe the four historical eras in the evolution of informatics.</p>
+<div class="qa-answer">(1) The Pre-Digital/Mechanical Era (pre-1940s) — physical information processing via the abacus, Pascal's calculator, and punch cards. (2) The Birth of Foundation Theory (1940s–50s) — Claude Shannon's Information Theory (1948) and the first electronic computers like ENIAC. (3) Institutional & Mainframe Growth (1960s–80s) — the term "informatics" was coined, and Edgar Codd invented the Relational Database Management System (1970) to organize mainframe data. (4) The Network & AI Revolution (1990s–present) — the World Wide Web, Big Data, and Cloud Computing.</div>
+<div class="qa-meta">📍 See Topic 2 → History of Informatics</div></div>
+</section>
+
+<!-- TOPIC 3 -->
+<section class="topic" id="t3" data-kw="organisation methods o&m sredim select record examine develop install maintain work flowcharts advantages disadvantages">
+<div class="topic-eyebrow">Topic 3</div>
+<h2>Organisation and Methods (O&amp;M)</h2>
+<p class="dek">A management service for diagnosing inefficiency and improving how an organization works — the SREDIM methodology.</p>
+
+<span class="tag src">Source</span>
+<blockquote class="lecturer">Continuous checking of office work at every stage and continuous research for the improvement and simplification of office methods is collectively known as Organisation and Methods or O &amp; M study.</blockquote>
+<div class="plain-box"><span class="tag plain">Plain English</span>Think of O&amp;M as a clinical check-up for a business: it diagnoses inefficiencies, bottlenecks and redundancies, then prescribes streamlined workflows.</div>
+<p>O&amp;M developed during the Second World War to improve government office administration, later adopted by big business and even small concerns. An independent department (not involved in routine office work) may be set up, or outside Management Consultants engaged.</p>
+
+<h3 class="sub-h">Two Core Components (as supplied)</h3>
+<table><tr><th>Aspect</th><th>Focuses on</th><th>Examples</th></tr>
+<tr><td><b>"Organization"</b></td><td>Structural framework of the enterprise</td><td>Span of control; delegation &amp; authority; departmentalization</td></tr>
+<tr><td><b>"Methods"</b></td><td>Mechanics of day-to-day work</td><td>Process mapping; form design; office automation</td></tr>
+</table>
+
+<h3 class="sub-h">Objectives of an O&amp;M Unit</h3>
+<ul class="keypts">
+<li><b>Eliminate Waste</b> — reduce wasted time, material, effort and space.</li>
+<li><b>Standardize Operations</b> — uniform procedures performed predictably and correctly every time.</li>
+<li><b>Improve Quality</b> — optimized workflows reduce human error.</li>
+<li><b>Enhance Employee Morale</b> — clearing ambiguous roles and redundant paperwork reduces frustration.</li>
+</ul>
+
+<h3 class="sub-h">Interactive: The SREDIM Methodology</h3>
+<div class="widget">
+<div class="wlabel">Interactive · Tap each step</div>
+<p class="wnote">O&amp;M practitioners follow this structured, data-based (not assumption-based) approach.</p>
+<div class="step-row" id="sredimRow"></div>
+<div class="info-panel" id="sredimInfo">Tap a step above.</div>
+</div>
+
+<h3 class="sub-h">Key O&amp;M Tools and Techniques</h3>
+<ul class="keypts">
+<li><b>Work Flowcharts</b> — visual diagrams tracking the movement of a document, product or decision through its stages.</li>
+<li><b>Work Measurement (Time &amp; Motion Studies)</b> — timing tasks to establish realistic performance standards and identify delays.</li>
+<li><b>Work Distribution Charts</b> — a matrix showing what tasks are done in a department, by whom, and how much time each takes, highlighting unfair/inefficient workload distribution.</li>
+</ul>
+
+<h3 class="sub-h">Five Aspects of an O&amp;M Assignment (as supplied)</h3>
+<ol class="keypts">
+<li><b>Determining the Purpose</b> — the object of the assignment must be clearly known and written down before a plan of action is chalked out.</li>
+<li><b>Planning the Assignment</b> — procedure and extent of study depend on department size and area of operation.</li>
+<li><b>Collecting the Data</b> — e.g. via questionnaire forms; data must be relevant or time, money and energy are wasted.</li>
+<li><b>Making Analysis of the Procedure</b> — querying every aspect: purpose, method, forms/documents used, time taken, and who does it.</li>
+<li><b>Making Proposals</b> — the best of several alternative methods is submitted as a recommendation for action; may suggest additional staff or retrenchment. Success depends on staff cooperation — the O&amp;M team must not be seen as a "fault-finding commission."</li>
+</ol>
+
+<h3 class="sub-h">Why O&amp;M Matters Today</h3>
+<p>Modern concepts like <b>Business Process Reengineering (BPR)</b>, <b>Lean Management</b>, and <b>Agile</b> operations are the evolution of O&amp;M's same core philosophy — whether cutting paperwork in a government ministry or automating an AI-driven workflow in a tech startup.</p>
+
+<h3 class="sub-h">Advantages &amp; Disadvantages of O&amp;M (as supplied)</h3>
+<details class="expand"><summary>Click to expand — full list</summary>
+<div class="expand-body">
+<p><b>Advantages:</b></p>
+<ul class="keypts">
+<li>Improves methods of operation, the organisation as a whole, and its administration.</li>
+<li>Work simplification, better communication, more effective control, prevention/reduction of faulty steps.</li>
+<li>Introduction of new techniques and equipment, raising productivity.</li>
+<li>General improvement of staff through more careful selection and training.</li>
+<li>Work measurement and job evaluation become practicable (affecting remuneration, promotion).</li>
+<li>Greater security — wastage, fraud etc. are detected and prevented.</li>
+<li>Cost reduction and enhanced organizational prestige.</li>
+</ul>
+<p><b>Disadvantages:</b></p>
+<ul class="keypts">
+<li>It is itself a costly affair.</li>
+<li>Small organisations cannot afford a separate O&amp;M department (though contract experts can be engaged).</li>
+<li>Difficult to apply properly — too much work simplification is bad.</li>
+</ul>
+</div></details>
+
+<div class="revision"><h3>📋 Quick Revision — Topic 3</h3>
+<table><tr><th>Step (SREDIM)</th><th>Meaning</th></tr>
+<tr><td>Select</td><td>Identify the area/process needing improvement</td></tr>
+<tr><td>Record</td><td>Gather facts via interviews, observation, flowcharts</td></tr>
+<tr><td>Examine</td><td>Critically challenge the current method</td></tr>
+<tr><td>Develop</td><td>Design a new, improved workflow</td></tr>
+<tr><td>Install</td><td>Implement the solution — train staff, update manuals</td></tr>
+<tr><td>Maintain</td><td>Periodically review so the process keeps delivering results</td></tr>
+</table></div>
+
+<div class="likely-q"><div class="wlabel">Likely Question</div>
+<p class="qtext">Q: Explain the SREDIM methodology used in Organisation and Methods studies.</p>
+<div class="qa-answer">SREDIM is a six-step, data-driven approach: Select the specific area/process needing improvement (usually one with high costs, delays or errors); Record all facts about current operations using interviews, observations and flowcharts; Examine the current method critically, questioning its necessity, who performs it, and whether it can be faster/cheaper; Develop a new, improved structure or workflow; Install the approved solution, including staff training and updated manuals; and Maintain the new system through periodic review so staff don't revert to old habits.</div>
+<div class="qa-meta">📍 See Topic 3 → The SREDIM Methodology</div></div>
+<div class="likely-q"><div class="wlabel">Likely Question</div>
+<p class="qtext">Q: Discuss the advantages and disadvantages of Organisation and Methods (O&amp;M) studies.</p>
+<div class="qa-answer">Advantages include improved methods of operation and administration, work simplification, better communication, more effective control, introduction of new techniques/equipment, staff improvement through better selection/training, practicable work measurement and job evaluation, greater security against wastage/fraud, and overall cost reduction. Disadvantages include the cost of running an O&amp;M exercise itself, the inability of small organisations to maintain a dedicated O&amp;M department (though they can hire outside consultants), and the difficulty of applying O&amp;M correctly — excessive work simplification can itself become counterproductive.</div>
+<div class="qa-meta">📍 See Topic 3 → Advantages &amp; Disadvantages of O&amp;M</div></div>
+</section>
+
+<!-- EXAM BANK -->
+<section class="topic" id="bank" data-kw="exam question bank final revision">
+<div class="topic-eyebrow">📋 Revision</div>
+<h2>Final Exam Question Bank</h2>
+<ul class="keypts">
+<li><a href="#t1">Topic 1 — Define a system and its three basic components</a></li>
+<li><a href="#t1">Topic 1 — TPS vs. MIS vs. DSS</a></li>
+<li><a href="#t2">Topic 2 — Informatics vs. Information Systems</a></li>
+<li><a href="#t2">Topic 2 — Four historical eras of informatics</a></li>
+<li><a href="#t3">Topic 3 — The SREDIM methodology</a></li>
+<li><a href="#t3">Topic 3 — Advantages &amp; disadvantages of O&amp;M</a></li>
+</ul>
+</section>
+
+</main>
+<button class="top-link" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
+<footer>APEXHUB Study Guide · CSC 420 Information Systems · Lecturer: Dr Ogunlana S.O. (Ph.D) · Built from the lecturer's lecture notes. Source material is the authority — this guide organises and explains it, it does not replace it.</footer>
+
+<script>
+(function(){
+var themeBtn=document.getElementById('theme-btn'),root=document.documentElement;
+function apply(t){if(t){root.setAttribute('data-theme',t)}else{root.removeAttribute('data-theme')}}
+try{apply(localStorage.getItem('apexhub-theme'))}catch(e){}
+themeBtn.addEventListener('click',function(){
+  var cur=root.getAttribute('data-theme');
+  var next=cur==='dark'?'light':(cur==='light'?null:(window.matchMedia('(prefers-color-scheme: dark)').matches?'light':'dark'));
+  apply(next); try{localStorage.setItem('apexhub-theme',next||'')}catch(e){}
+});
+var nav=document.getElementById('topic-nav');
+var labels={t1:'Topic 1',t2:'Topic 2',t3:'Topic 3',bank:'Exam Bank'};
+document.querySelectorAll('main .topic').forEach(function(sec){
+  var a=document.createElement('a');a.href='#'+sec.id;a.textContent=labels[sec.id]||sec.id;nav.appendChild(a);
+});
+var search=document.getElementById('search'),sections=Array.prototype.slice.call(document.querySelectorAll('main .topic'));
+search.addEventListener('input',function(){var q=this.value.trim().toLowerCase();sections.forEach(function(sec){var kw=(sec.dataset.kw||'')+' '+sec.textContent.toLowerCase();sec.classList.toggle('hidden',q.length>1&&kw.indexOf(q)===-1);});});
+
+// DIKW Pyramid
+var dikw=[
+ {name:'Data',w:'w1',d:'The most basic level — elementary descriptions of things, events, activities and transactions, recorded and stored but not yet organized to convey meaning. Unrelated items of data are "noise" until placed in context. E.g. a student\'s grade in one class.'},
+ {name:'Information',w:'w2',d:'Data that has been organized so it has meaning and value to the recipient. The recipient interprets the meaning and draws conclusions. E.g. a student\'s grade point average.'},
+ {name:'Knowledge',w:'w3',d:'Data/information organized and processed to convey understanding, experience, accumulated learning and expertise as applied to a current problem — has very high potential value.'},
+ {name:'Wisdom',w:'w4',d:'An extrapolative, non-deterministic process calling on moral/ethical judgement. It is the only DIKW stage dealing with the future, and the tool for decision-making — distinguishing right from wrong, good from bad.'}
+];
+var dikwEl=document.getElementById('dikwPyramid'),dikwInfo=document.getElementById('dikwInfo');
+// build bottom-up visually: Data (widest) at bottom, Wisdom (narrowest) at top
+var dikwOrder=[dikw[3],dikw[2],dikw[1],dikw[0]]; // Wisdom, Knowledge, Information, Data (top to bottom)
+dikwOrder.forEach(function(layer){
+  var el=document.createElement('div');el.className='pyr-layer '+layer.w;el.textContent=layer.name;
+  el.addEventListener('click',function(){
+    document.querySelectorAll('#dikwPyramid .pyr-layer').forEach(function(x){x.classList.remove('active')});
+    el.classList.add('active'); dikwInfo.innerHTML='<b>'+layer.name+':</b> '+layer.d;
+  });
+  dikwEl.appendChild(el);
+});
+
+// CBIS cards
+var cbis=[
+ {n:'TPS',d:'Transaction Processing System — captures, classifies, stores, maintains, updates and retrieves transaction data for record-keeping. Operational level. E.g. point-of-sale systems, payroll processing, shipment tracking.'},
+ {n:'MIS',d:'Management Information System — supports management and administrative activities: planning, scheduling, analysis, decision-making. Tactical level. E.g. monthly sales analysis reports.'},
+ {n:'DSS',d:'Decision Support System — offers information for unpredictable, one-off, unstructured or semi-structured decisions. Supports, but does not replace, managerial judgement. E.g. a tool calculating the financial impact of a price change.'},
+ {n:'EIS/ESS',d:'Executive (Support) Information System — for senior executives tracking long-term goals, strategic outcomes and risks. Presents visual dashboards rather than detailed reports. Strategic level.'},
+ {n:'ERP',d:'Enterprise Resource Planning — integrates core business functions (accounting, inventory, HR, procurement) into one platform, preventing data silos and duplication.'},
+ {n:'CRM',d:'Customer Relationship Management — gathers customer information (purchase history, preferences, feedback) to better understand and serve customers.'},
+ {n:'SCM',d:'Supply Chain Management — handles getting a product/service from origin to customer: goods, information, finances, scheduling, inventory, vendor coordination.'},
+ {n:'KMS',d:'Knowledge Management System — captures, stores, organizes and shares what employees know, so others can access insights, learn from past outcomes and build on existing work.'}
+];
+var cbisGrid=document.getElementById('cbisGrid'),cbisInfo=document.getElementById('cbisInfo');
+cbis.forEach(function(s){
+  var el=document.createElement('div');el.className='sys-card';el.textContent=s.n;
+  el.addEventListener('click',function(){
+    document.querySelectorAll('#cbisGrid .sys-card').forEach(function(x){x.classList.remove('active')});
+    el.classList.add('active'); cbisInfo.innerHTML='<b>'+s.n+':</b> '+s.d;
+  });
+  cbisGrid.appendChild(el);
+});
+
+// IS Lifecycle flow (play/step)
+var lcSteps=[
+ {label:'Input',info:'Collecting or capturing raw data from internal or external sources, e.g. scanning a barcode at a supermarket checkout.'},
+ {label:'Processing',info:'Converting that raw input into a meaningful form, e.g. calculating total sales, applying discounts, updating inventory counts.'},
+ {label:'Output',info:'Distributing the processed information to the people or activities that will use it, e.g. generating a weekly revenue report.'},
+ {label:'Storage',info:'Keeping the data safe for future use, e.g. saving customer purchase histories in a cloud database.'},
+ {label:'Feedback',info:'Output returned to appropriate members of the organization to evaluate or correct the Input stage, e.g. an alert showing inventory is too low — looping back to Input/Processing.'}
+];
+var lcEl=document.getElementById('lifecycleFlow'),lcInfo=document.getElementById('lcInfo'),lcIdx=-1,lcTimer=null;
+lcSteps.forEach(function(s,i){
+  var step=document.createElement('div');step.className='flow-step';step.textContent=s.label;lcEl.appendChild(step);
+  if(i<lcSteps.length-1){var arrow=document.createElement('div');arrow.className='flow-arrow';arrow.textContent='→';lcEl.appendChild(arrow);}
+});
+function renderLc(){
+  var steps=lcEl.querySelectorAll('.flow-step');
+  steps.forEach(function(st,i){st.classList.toggle('active',i===lcIdx);});
+  if(lcIdx<0){lcInfo.textContent='Press Play or Step to begin.';}
+  else{lcInfo.innerHTML='<b>'+lcSteps[lcIdx].label+':</b> '+lcSteps[lcIdx].info;}
+}
+function lcStep(){lcIdx=(lcIdx+1)%lcSteps.length;renderLc();}
+document.getElementById('lcStep').addEventListener('click',function(){clearInterval(lcTimer);lcTimer=null;lcStep();});
+document.getElementById('lcReset').addEventListener('click',function(){clearInterval(lcTimer);lcTimer=null;lcIdx=-1;renderLc();});
+document.getElementById('lcPlay').addEventListener('click',function(){
+  if(lcTimer){clearInterval(lcTimer);lcTimer=null;return;}
+  lcTimer=setInterval(function(){lcStep();},1300);
+});
+renderLc();
+
+// Org Pyramid
+var orgLevels=[
+ {name:'Strategic (Top)',w:'w1',d:'System Type: Executive Support Systems (ESS). Focus: long-term, strategic issues and trends inside and outside the company. Example: dashboard showing 5-year industry growth projections alongside internal performance metrics.'},
+ {name:'Tactical (Middle)',w:'w3',d:'System Type: MIS &amp; DSS. Focus: helping middle managers monitor, control, decide, and administer. Example: monthly sales analysis reports, or interactive tools calculating the financial impact of a price change.'},
+ {name:'Operational (Bottom)',w:'w4',d:'System Type: Transaction Processing Systems (TPS). Focus: tracking elementary activities and transactions. Example: point-of-sale systems, payroll processing, shipment tracking.'}
+];
+var orgEl=document.getElementById('orgPyramid'),orgInfo=document.getElementById('orgInfo');
+orgLevels.forEach(function(level){
+  var el=document.createElement('div');el.className='pyr-layer '+level.w;el.textContent=level.name;
+  el.addEventListener('click',function(){
+    document.querySelectorAll('#orgPyramid .pyr-layer').forEach(function(x){x.classList.remove('active')});
+    el.classList.add('active'); orgInfo.innerHTML='<b>'+level.name+':</b> '+level.d;
+  });
+  orgEl.appendChild(el);
+});
+
+// History stepper
+var hist=[
+ {t:'The Pre-Digital / Mechanical Era',p:'Pre-1940s',d:'Information processing relied on physical mechanisms: the Abacus, Blaise Pascal\'s Pascaline calculator (1642), Charles Babbage\'s Analytical Engine design (1837), and punch cards used in the 1890 US Census to automate data tabulation.'},
+ {t:'The Birth of Foundation Theory',p:'1940s–1950s',d:'The field shifted to a mathematical science. In 1948, Claude Shannon published "A Mathematical Theory of Communication," inventing Information Theory and defining the "bit." This era saw the first general-purpose electronic computers like ENIAC (1945).'},
+ {t:'Institutional & Mainframe Growth',p:'1960s–1980s',d:'The word "informatics" was officially coined (Alexander Mikhailov\'s Informatika, 1966; Philippe Dreyfus\'s Informatique). Large organizations deployed mainframes, leading Edgar F. Codd to invent the Relational Database Management System (RDBMS) in 1970.'},
+ {t:'The Network & AI Revolution',p:'1990s–Present',d:'The World Wide Web transformed informatics from isolated organizational database management into a globally networked science. The explosion of raw data birthed Big Data architecture, evolving into modern Cloud Computing and decentralized data pipelines.'}
+];
+var histI=0,histInfo=document.getElementById('histInfo');
+function showHist(){histInfo.innerHTML='<b>'+hist[histI].t+'</b> ('+hist[histI].p+'): '+hist[histI].d;}
+document.getElementById('histNext').addEventListener('click',function(){histI=(histI+1)%hist.length;showHist();});
+document.getElementById('histPrev').addEventListener('click',function(){histI=(histI-1+hist.length)%hist.length;showHist();});
+showHist();
+
+// SREDIM stepper
+var sredim=[
+ {l:'S',t:'Select',d:'Identify the specific area, department, or process that needs improvement — usually chosen because it is experiencing high costs, delays, or frequent errors.'},
+ {l:'R',t:'Record',d:'Gather all facts about the current operation using tools like interviews, observations, and flowcharts.'},
+ {l:'E',t:'Examine',d:'Critically challenge the current method. Why is this step necessary? Who is best suited to do it? Can it be done faster or cheaper?'},
+ {l:'D',t:'Develop',d:'Brainstorm and design a new, improved organization structure or workflow method.'},
+ {l:'I',t:'Install',d:'Implement the approved solution — training staff, updating manuals, deploying new tools.'},
+ {l:'M',t:'Maintain',d:'Periodically review the new system to ensure employees don\'t slip back into old habits and that the process continues to deliver results.'}
+];
+var sredimRow=document.getElementById('sredimRow'),sredimInfo=document.getElementById('sredimInfo');
+sredim.forEach(function(s){
+  var el=document.createElement('div');el.className='step-dot';el.textContent=s.l;
+  el.addEventListener('click',function(){
+    document.querySelectorAll('#sredimRow .step-dot').forEach(function(x){x.classList.remove('active')});
+    el.classList.add('active'); sredimInfo.innerHTML='<b>'+s.l+' — '+s.t+':</b> '+s.d;
+  });
+  sredimRow.appendChild(el);
+});
+})();
+</script>
+</body>
+</html>
+
+</body></html>
